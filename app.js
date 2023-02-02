@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/hotels', hotelsRouter);
 
-const allowedOrigins = ['https://lime-home.herokuapp.com', 'https://nemanjamilosevic98.github.io'];
+const allowedOrigins = ['https://lime-home.herokuapp.com', 'https://nemanjamilosevic98.github.io', 'http://localhost:4200'];
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const allowedOrigins = ['https://lime-home.herokuapp.com', 'https://nemanjamilosevic98.github.io'];
+const allowedOrigins = ['https://lime-home.herokuapp.com', 'https://nemanjamilosevic98.github.io', 'http://localhost:4200'];
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
