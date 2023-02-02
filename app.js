@@ -19,11 +19,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const cors = require('cors');
-let corsOptions = {
-  origin: ['https://lime-home.herokuapp.com']
-}
-app.use(cors(corsOptions));
+// const cors = require('cors');
+// let corsOptions = {
+//   origin: ['https://lime-home.herokuapp.com']
+// }
+// app.use(cors(corsOptions));
 
 app.use('/', indexRouter);
 app.use('/hotels', hotelsRouter);
