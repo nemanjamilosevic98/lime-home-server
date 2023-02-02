@@ -8,6 +8,8 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'https://lime-home.herokuapp.com')
+  res.header('Access-Control-Allow-Headers', '*')
   res.json({
     items: [
       {
