@@ -19,25 +19,27 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// const cors = require('cors');
-// let corsOptions = {
-//   origin: ['https://lime-home.herokuapp.com']
-// }
-// app.use(cors(corsOptions));
-
 app.use('/', indexRouter);
 app.use('/hotels', hotelsRouter);
 
+const allowedOrigins = ['https://lime-home.herokuapp.com', 'https://nemanjamilosevic98.github.io/lime-home'];
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://lime-home.herokuapp.com')
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.header('Access-Control-Allow-Headers', '*')
   next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://lime-home.herokuapp.com')
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.header('Access-Control-Allow-Headers', '*')
   // set locals, only providing error in development
   res.locals.message = err.message;
